@@ -71,6 +71,16 @@ const router = createRouter({
       name: "order_detail",
       component: () => import("@/views/OrderDetail.vue"),
     },
+    {
+      path: "/guest",
+      name: "guest",
+      component: () => import("@/views/Guest.vue"),
+    },
+    {
+      path: "/account",
+      name: "account",
+      component: () => import("@/views/Account.vue"),
+    },
   ],
 });
 

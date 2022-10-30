@@ -90,6 +90,23 @@
                 </el-icon>
                 订单管理
               </el-menu-item>
+              <el-menu-item index="/guest">
+                <el-icon>
+                  <User />
+                </el-icon>会员管理
+              </el-menu-item>
+            </el-menu-item-group>
+          </el-sub-menu>
+          <el-sub-menu index="4">
+            <template #title>
+              <span>系统管理</span>
+            </template>
+            <el-menu-item-group>
+              <el-menu-item index="/account">
+                <el-icon>
+                  <Lock />
+                </el-icon>修改密码
+              </el-menu-item>
             </el-menu-item-group>
           </el-sub-menu>
         </el-menu>
@@ -123,7 +140,7 @@ const router = useRouter()
 const state = reactive({
   //是否需要显示菜单
   showMenu: true,
-  defaultOpen: ['1', '2', '3'],
+  defaultOpen: ['1', '2', '3', '4'],
   currentPath: '/',
 })
 

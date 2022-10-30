@@ -65,6 +65,8 @@ export default ({ mode }) =>
               "@/views/Good.vue",
               "@/views/Order.vue",
               "@/views/OrderDetail.vue",
+              "@/views/Guest.vue",
+              "@/views/Account.vue",
             ],
           },
         },

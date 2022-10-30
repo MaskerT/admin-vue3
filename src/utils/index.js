@@ -29,6 +29,8 @@ export const pathMap = {
   good: "商品管理",
   order: "订单管理",
   order_detail: "订单详情",
+  guest: "会员管理",
+  account: "修改密码",
 };
 
 // 單張圖片上傳
