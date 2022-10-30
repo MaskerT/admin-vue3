@@ -27,10 +27,13 @@ export const pathMap = {
   level2: "分类二级管理",
   level3: "分类三级管理",
   good: "商品管理",
+  order: "订单管理",
+  order_detail: "订单详情",
 };
 
 // 單張圖片上傳
 export const uploadImgServer =
   "http://backend-api-02.newbee.ltd/manage-api/v1/upload/file";
 // 多张图片上传
-export const uploadImgsServer = 'http://backend-api-02.newbee.ltd/manage-api/v1/upload/files'
+export const uploadImgsServer =
+  "http://backend-api-02.newbee.ltd/manage-api/v1/upload/files";
