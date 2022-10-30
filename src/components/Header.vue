@@ -7,12 +7,20 @@
       <span style="font-size: 20px">{{ state.name }}</span>
     </div>
     <div class="right">
-      <el-popover placement="bottom" :width="320" trigger="click" popper-class="popper-user-box">
+      <el-popover
+        placement="bottom"
+        :width="320"
+        trigger="click"
+        popper-class="popper-user-box">
         <template #reference>
           <div class="author">
-            <i class="icon el-icon-s-custom" />
+            <el-icon>
+              <Avatar />
+            </el-icon>
             {{ state.userInfo && state.userInfo.nickName || '' }}
-            <i class="el-icon-caret-bottom" />
+            <el-icon>
+              <CaretBottom />
+            </el-icon>
           </div>
         </template>
         <div class="nickname">
@@ -30,6 +38,7 @@ import { reactive, toRefs, onMounted } from 'vue'
 import { useRouter } from 'vue-router'
 import { pathMap, localRemove } from "@/utils/index.js";
 import axios from "axios";
+import { ElIcon } from "element-plus";
 
 //创建路由实例，声明路由和title对应的键值对
 const router = useRouter()
@@ -63,7 +72,7 @@ router.afterEach((to) => {
   const { id } = to.query
   state.name = pathMap[to.name]
   // level2 和 level3 需要展示返回icon
-  state.hasBack = ['level2', 'level3','order_detail'].includes(to.name)
+  state.hasBack = ['level2', 'level3', 'order_detail'].includes(to.name)
 })
 // 返回方法
 const back = () => {
@@ -101,7 +110,7 @@ const back = () => {
   cursor: pointer;
 }
 </style>
-<!--el-popover最后是定义在根节点外的，故其格式不能卸载scope内-->
+<!--el-popover最后是定义在根节点外的，故其格式不能寫在scope内-->
 <style>
 .popper-user-box {
   background: url('https://s.yezgea02.com/lingling-h5/static/account-banner-bg.png') 50% 50% no-repeat !important;

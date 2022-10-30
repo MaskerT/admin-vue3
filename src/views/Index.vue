@@ -26,7 +26,6 @@
         <div class="item">20%</div>
       </el-card>
     </div>
-    <div id="zoom"></div>
   </el-card>
 </template>
 
