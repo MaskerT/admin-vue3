@@ -48,8 +48,8 @@
 </template>
 
 <script setup>
-import { ref } from 'vue'
 import Table from '@/components/Table.vue'
+import { ref } from 'vue'
 import { ElMessage } from 'element-plus'
 import { Plus, Delete } from '@element-plus/icons-vue'
 import axios from '@/utils/axios'
@@ -58,6 +58,7 @@ const table = ref() // 绑定 Table  的 ref 属性
 // 解禁方法
 const handleSolve = () => {
   // 可以通过 table 获取到组件内部的 multipleSelection 值
+  // 由於defineExpose中的内容會被自動解包，所以ref數據無需.value直接使用
   if (!table.value.multipleSelection.length) {
     ElMessage.error('请选择项')
     return

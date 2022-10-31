@@ -13,18 +13,18 @@
     :total="state.total"
     :page-size="state.pageSize"
     :current-page="state.currentPage"
-    @current-change="changePage" />
+    @update:current-page="changePage" />
 </template>
 
 <script setup>
-import { onMounted, reactive } from 'vue'
+import { onMounted, reactive, defineExpose, toRefs } from 'vue'
 import axios from '@/utils/axios'
 
 const props = defineProps({
   action: String
 })
 const state = reactive({
-  loading: false,
+  loading: false, // 加載狀態
   tableData: [], // 数据列表
   total: 0, // 总条数
   currentPage: 1, // 当前页
@@ -54,12 +54,12 @@ const getList = () => {
 const handleSelectionChange = (val) => {
   state.multipleSelection = val
 }
-// 分页方法
+// 分页方法（將分頁方法更改爲官網更加推薦的雙向數據綁定）
 const changePage = (val) => {
   state.currentPage = val
   getList()
 }
-defineExpose({ state, props, getList, handleSelectionChange, changePage })
+defineExpose({ ...toRefs(state), props, getList, handleSelectionChange, changePage })
 </script>
 
 <style scoped>

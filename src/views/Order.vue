@@ -71,7 +71,7 @@
             confirm-button-text="确定"
             cancel-button-text="取消">
             <template #reference>
-              <a style="cursor: pointer; margin-right: 10px">配货完成</a>
+              <a class="link">配货完成</a>
             </template>
           </el-popconfirm>
           <el-popconfirm
@@ -81,7 +81,7 @@
             confirm-button-text="确定"
             cancel-button-text="取消">
             <template #reference>
-              <a style="cursor: pointer; margin-right: 10px">出库</a>
+              <a class="link">出库</a>
             </template>
           </el-popconfirm>
           <el-popconfirm
@@ -91,10 +91,10 @@
             confirm-button-text="确定"
             cancel-button-text="取消">
             <template #reference>
-              <a style="cursor: pointer; margin-right: 10px">关闭订单</a>
+              <a class="link">关闭订单</a>
             </template>
           </el-popconfirm>
-          <router-link :to="{ path: '/order_detail', query: { id: scope.row.orderId } }">订单详情</router-link>
+          <router-link class="link" :to="{ path: '/order_detail', query: { id: scope.row.orderId } }">订单详情</router-link>
         </template>
       </el-table-column>
     </el-table>
@@ -251,5 +251,10 @@ const handleClose = (id) => {
 </script>
 
 <style scoped>
-
+.link {
+  cursor: pointer; 
+  margin-right: 10px;
+  color: blue;
+  text-decoration: none;
+}
 </style>
