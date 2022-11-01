@@ -35,7 +35,6 @@ import { ElMessage } from 'element-plus'
 const props = defineProps({
   type: String,
   configType: Number,
-  reload: Function
 })
 
 const formRef = ref(null)
@@ -107,7 +106,7 @@ const submitForm = () => {
         }).then(() => {
           ElMessage.success('添加成功')
           state.visible = false
-          if (props.reload) props.reload()
+          bus.emit('getList', 'Goods')
         })
       } else {
         axios.put('/indexConfigs', {
@@ -120,7 +119,7 @@ const submitForm = () => {
         }).then(() => {
           ElMessage.success('修改成功')
           state.visible = false
-          if (props.reload) props.reload()
+          bus.emit('getList', 'Goods')
         })
       }
     }

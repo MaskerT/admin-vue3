@@ -43,10 +43,11 @@ import {reactive, ref} from 'vue'
 import axios from '@/utils/axios'
 import {localGet, uploadImgServer} from '@/utils'
 import {ElMessage} from 'element-plus'
+// 使用全局事件總綫來傳遞刷新列表方法
+import bus from '../libs/bus'
 
 const props = defineProps({
   type: String, // add 为新增；edit 为编辑
-  reload: Function // table 刷新的方法
 })
 // formRef 用于表单验证控制
 const formRef = ref()
@@ -125,7 +126,7 @@ const submitForm = () => {
         }).then(() => {
           ElMessage.success('添加成功')
           state.visible = false
-          if (props.reload) props.reload()
+          bus.emit('getList', 'null')
         })
       } else {
         // 编辑用 axios.put
@@ -137,7 +138,7 @@ const submitForm = () => {
         }).then(() => {
           ElMessage.success('修改成功')
           state.visible = false
-          if (props.reload) props.reload()
+          bus.emit('getList', 'null')
         })
       }
     }

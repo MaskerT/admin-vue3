@@ -26,6 +26,7 @@ import {reactive, ref} from 'vue'
 import {useRoute} from 'vue-router'
 import axios from '@/utils/axios'
 import {ElMessage} from 'element-plus'
+import bus from '../libs/bus'
 
 const props = defineProps({
   type: String, // 用于判断是添加还是编辑
@@ -100,7 +101,7 @@ const submitForm = () => {
           ElMessage.success('添加成功')
           state.visible = false
           // 接口回调之后，运行重新获取列表方法 reload
-          if (props.reload) props.reload()
+          bus.emit('getList','Category')
         })
       } else {
         // 修改方法
@@ -114,7 +115,7 @@ const submitForm = () => {
           ElMessage.success('修改成功')
           state.visible = false
           // 接口回调之后，运行重新获取列表方法 reload
-          if (props.reload) props.reload()
+          bus.emit('getList', 'Category')
         })
       }
     }

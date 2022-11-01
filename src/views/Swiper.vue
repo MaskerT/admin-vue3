@@ -13,7 +13,7 @@
           </template>
         </el-popconfirm>
       </div>
-      <DialogAddSwiper ref='addSwiper' :reload="getCarousels" :type="state.type" />
+      <DialogAddSwiper ref='addSwiper' :type="state.type" />
     </template>
     <Table
       action='/carousels'
@@ -46,6 +46,14 @@
           label="添加时间"
           width="200">
         </el-table-column>
+        <el-table-column
+          label="操作"
+          width="100">
+          <template #default="{ row }">
+            <a style="cursor: pointer; margin-right: 10px"
+              @click="handleEdit(row.carouselId)">修改</a>
+          </template>
+        </el-table-column>
       </template>
     </Table>
   </el-card>
@@ -69,9 +77,9 @@ const handleAdd = () => {
   addSwiper.value.open()
 }
 // 修改轮播图
-const handleEdit = (id) => {
+const handleEdit = (url) => {
   state.type = 'edit'
-  addSwiper.value.open(id)
+  addSwiper.value.open(url)
 }
 // 批量删除
 const handleDelete = () => {
