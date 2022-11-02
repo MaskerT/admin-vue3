@@ -71,7 +71,7 @@
 </template>
 
 <script setup>
-import { onMounted, reactive, ref } from 'vue'
+import { onMounted, reactive, ref, onUnmounted } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
 import axios from '@/utils/axios'
 import { ElMessage } from 'element-plus'
@@ -95,13 +95,17 @@ const router = useRouter()
 const route = useRoute()
 const state = reactive({ type: 'add', /* 操作类型 */ })
 // 监听路由变化
-router.beforeEach((to) => {
+// 根据源码，路由守卫返回一个函数去消除路由守卫，需要手动在组件卸载的时候消除守卫，以防止多个路由守卫存在的状况
+const unWatch = router.beforeEach((to) => {
   if (['hot', 'new', 'recommend'].includes(to.name)) {
     // 通过 to.name 去匹配不同路径下，configType 参数也随之变化。
     table.value.configType = configTypeMap[to.name]
     table.value.currentPage = 1
     bus.emit('getList', 'Goods')
   }
+})
+onUnmounted(() => {
+  unWatch()
 })
 // 初始化
 onMounted(() => {
