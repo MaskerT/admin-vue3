@@ -11,10 +11,10 @@
       </div>
       <el-form label-position="top" :rules="state.rules" :model="state.ruleForm" ref="loginForm" class="login-form">
         <el-form-item label="账号" prop="username">
-          <el-input type="text" v-model.trim="state.ruleForm.username" autocomplete="off"></el-input>
+          <el-input type="text" v-model.trim="state.ruleForm.username"></el-input>
         </el-form-item>
         <el-form-item label="密码" prop="password">
-          <el-input type="password" v-model.trim="state.ruleForm.password" autocomplete="off"></el-input>
+          <el-input type="password" v-model.trim="state.ruleForm.password"></el-input>
         </el-form-item>
         <el-form-item>
           <div style="color: #333">登录表示您已同意<a href="#">服务条款</a></div>
@@ -29,7 +29,7 @@
 <script setup>
 import axios from "@/utils/axios.js";
 import md5 from 'js-md5'
-import { reactive, ref, toRefs } from "vue";
+import { reactive, ref } from "vue";
 import { localSet } from "@/utils/index.js";
 
 //todo 这里的elementUI表单验证逻辑需要梳理一下

@@ -2,7 +2,7 @@
   <div class="layout">
     <el-container v-if="state.showMenu" class="container">
       <el-aside class="aside">
-        <!-- 名称+logo(logo待定制) -->
+        <!-- 名称+logo -->
         <div class="head">
           <div>
             <img src="//s.weituibao.com/1582958061265/mlogo.png" alt="logo">
@@ -14,7 +14,7 @@
         <el-menu
           background-color="#222832"
           text-color="#fff"
-          :router="true">
+          router=true>
           <!-- 一级菜单 -->
           <el-sub-menu index="1">
             <template #title>
@@ -126,7 +126,7 @@
 </template>
 
 <script setup>
-import { reactive, toRefs } from "vue";
+import { reactive } from "vue";
 import { useRouter } from "vue-router";
 import Header from "@/components/Header.vue";
 import Footer from "@/components/Footer.vue";

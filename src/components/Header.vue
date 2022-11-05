@@ -34,7 +34,7 @@
 </template>
 
 <script setup>
-import { reactive, toRefs, onMounted } from 'vue'
+import { reactive, onMounted } from 'vue'
 import { useRouter } from 'vue-router'
 import { pathMap, localRemove } from "@/utils/index.js";
 import axios from "axios";
