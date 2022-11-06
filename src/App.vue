@@ -14,7 +14,9 @@
         <el-menu
           background-color="#222832"
           text-color="#fff"
-          router=true>
+          :router="true"
+          :default-openeds="state.defaultOpen"
+          :default-active="state.currentPath">
           <!-- 一级菜单 -->
           <el-sub-menu index="1">
             <template #title>
