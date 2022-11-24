@@ -19,7 +19,3 @@ Compiles and minifies for production
 ### 優化相關
 - 路由懶加載
 - 抽離公共組件，并對其中包含的element組件進行二次封裝
-
-### 鳴謝
-特別鳴謝程序員十三提供的教程内容和後端接口
-後端倉庫地址：https://github.com/newbee-ltd/newbee-mall-api
